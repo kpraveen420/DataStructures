@@ -1,10 +1,7 @@
-/**
- * 
- */
 package com.praveen.sjsu.trees;
 
 /**
- * @author nagarjunak
+ * @author praveenk
  *
  */
 public class Main {
@@ -41,16 +38,22 @@ public class Main {
 		System.out.println(bTree.findRecursion(9));
 		System.out.println(bTree.findRecursion(100));
 		System.out.println();
+		System.out.println("PreOrder recursive");
 		bTree.preOrder(bTree.root);
 		System.out.println();
+		System.out.println("InOrder recursive");
 		bTree.inOrder(bTree.root);
 		System.out.println();
+		System.out.println("PostOrder recursive");
 		bTree.postOrder(bTree.root);
 		System.out.println();
+		System.out.println("InOrder iterative");
 		bTree.inOrderIterative();
 		System.out.println();
+		System.out.println("PreOrder iterative");
 		bTree.preOrderIterative();
 		System.out.println();
+		System.out.println("PostOrder iterative");
 		bTree.postOrderIterative();
 	}
 

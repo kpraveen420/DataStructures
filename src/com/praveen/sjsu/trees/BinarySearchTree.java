@@ -1,12 +1,9 @@
-/**
- * 
- */
 package com.praveen.sjsu.trees;
 
 import com.praveen.sjsu.stack.Stack;
 
 /**
- * @author nagarjunak
+ * @author praveenk
  *
  */
 public class BinarySearchTree {
