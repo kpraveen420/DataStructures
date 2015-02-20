@@ -1,5 +1,7 @@
 package com.praveen.sjsu.trees;
 
+import java.util.ArrayList;
+
 import com.praveen.sjsu.stack.Stack;
 
 /**
@@ -137,6 +139,7 @@ public class BinarySearchTree {
 	// }
 
 	public void inOrderIterative() {
+		System.out.println("InOrder iterative");
 		Stack<Node> myStack = new Stack<Node>(30);
 		Node temp = root;
 		while (!myStack.isEmpty() || temp != null) {
@@ -185,6 +188,112 @@ public class BinarySearchTree {
 			}
 		}
 	}
+
+	/**
+	 * Prints all paths from root to leafs
+	 * 
+	 * @param node
+	 * @param path
+	 */
+	public void printAllRootToLeafPaths(Node node, ArrayList<Integer> path) {
+		if (node == null) {
+			return;
+		}
+		path.add(node.data);
+
+		if (node.left == null && node.right == null) {
+			System.out.println(path);
+			return;
+		} else {
+			printAllRootToLeafPaths(node.left, new ArrayList<Integer>(path));
+			printAllRootToLeafPaths(node.right, new ArrayList<Integer>(path));
+		}
+	}
+
+	/**
+	 * Prints all paths from root to leafs
+	 * 
+	 * @param node
+	 * @param path
+	 */
+	public void printAllRootToLeafPaths(Node node, String path) {
+		if (node == null) {
+			return;
+		}
+		// path.add(node.data);
+		path = path + ", " + node.data;
+
+		if (node.left == null && node.right == null) {
+			System.out.println(path);
+			return;
+		} else {
+			printAllRootToLeafPaths(node.left, path);
+			printAllRootToLeafPaths(node.right, path);
+		}
+	}
+
+	/**
+	 * Mirror the tree
+	 * 
+	 * @param node
+	 */
+	public void mirrorTree(Node node) {
+		if (node == null)
+			return;
+		mirrorTree(node.left);
+		mirrorTree(node.right);
+		Node temp = node.left;
+		node.left = node.right;
+		node.right = temp;
+	}
+
+	/**
+	 * Double the tree
+	 * 
+	 * @param node
+	 */
+	@Deprecated
+	public void doubleTree(Node node) {
+		Node oldLeft;
+
+		if (node == null)
+			return;
+
+		// do the subtrees
+		doubleTree(node.left);
+		doubleTree(node.right);
+
+		// duplicate this node to its left
+		oldLeft = node.left;
+		node.left = new Node(node.data);
+		node.left.left = oldLeft;
+	}
+
+	/**
+	 * Compares whether both the trees are same or not.
+	 * @param node1
+	 * @param node2
+	 * @return
+	 */
+	public boolean compareTree(Node node1, Node node2) {
+		if (node1 == null && node2 == null)
+			return true;
+		else if (node1 != null && node2 != null)
+			return node1.data == node2.data
+					&& compareTree(node1.left, node2.left)
+					&& compareTree(node1.right, node2.right);
+		else
+			return false;
+
+		// if (node1 == node2)
+		// return true;
+		// if (node1 != null && node2 != null && node1.data == node2.data)
+		// return compareTree(node1.left, node2.left)
+		// && compareTree(node1.right, node2.right);
+		// else
+		// return false;
+	}
+
 }
 
 class Node {

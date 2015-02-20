@@ -1,5 +1,7 @@
 package com.praveen.sjsu.trees;
 
+import java.util.ArrayList;
+
 /**
  * @author praveenk
  *
@@ -11,27 +13,28 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		BinarySearchTree bTree = new BinarySearchTree();
-		// bTree.insert(10);
-		// bTree.insert(4);
-		// bTree.insert(6);
-		// bTree.insert(12);
-		// bTree.insert(15);
-		// bTree.insert(11);
-		// bTree.insert(10);
-		// bTree.insert(3);
-		// bTree.insert(9);
-		// bTree.insert(19);
+		BinarySearchTree bTree2 = new BinarySearchTree();
+		bTree.insert(10);
+		bTree.insert(4);
+		bTree.insert(6);
+		bTree.insert(12);
+		bTree.insert(15);
+		bTree.insert(11);
+		bTree.insert(10);
+		bTree.insert(3);
+		bTree.insert(9);
+		bTree.insert(19);
 
-		bTree.insertIterative(10);
-		bTree.insertIterative(4);
-		bTree.insertIterative(6);
-		bTree.insertIterative(12);
-		bTree.insertIterative(15);
-		bTree.insertIterative(11);
-		bTree.insertIterative(10);
-		bTree.insertIterative(3);
-		bTree.insertIterative(9);
-		bTree.insertIterative(19);
+		bTree2.insertIterative(10);
+		bTree2.insertIterative(4);
+		bTree2.insertIterative(6);
+		bTree2.insertIterative(12);
+		bTree2.insertIterative(15);
+		bTree2.insertIterative(11);
+		bTree2.insertIterative(10);
+		bTree2.insertIterative(3);
+		bTree2.insertIterative(9);
+		bTree2.insertIterative(19);
 
 		System.out.println("Depth of binary search tree is:"
 				+ bTree.depth(bTree.root));
@@ -47,7 +50,6 @@ public class Main {
 		System.out.println("PostOrder recursive");
 		bTree.postOrder(bTree.root);
 		System.out.println();
-		System.out.println("InOrder iterative");
 		bTree.inOrderIterative();
 		System.out.println();
 		System.out.println("PreOrder iterative");
@@ -55,6 +57,22 @@ public class Main {
 		System.out.println();
 		System.out.println("PostOrder iterative");
 		bTree.postOrderIterative();
+		System.out.println();
+		bTree.printAllRootToLeafPaths(bTree.root, new ArrayList<Integer>());
+		bTree.printAllRootToLeafPaths(bTree.root, " ");
+		bTree.mirrorTree(bTree.root);
+		bTree.inOrderIterative();
+		bTree.mirrorTree(bTree.root);
+		System.out.println();
+		bTree.inOrderIterative();
+		System.out.println();
+		bTree2.inOrderIterative();
+		 bTree2.insert(19);
+		// bTree.doubleTree(bTree.root);
+		// System.out.println();
+		// bTree.inOrderIterative();
+		System.out.println();
+		System.out.println(bTree.compareTree(bTree.root, bTree2.root));
 	}
 
 }
