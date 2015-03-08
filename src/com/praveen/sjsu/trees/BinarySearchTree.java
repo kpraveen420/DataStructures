@@ -1,7 +1,6 @@
 package com.praveen.sjsu.trees;
 
 import java.util.ArrayList;
-
 import com.praveen.sjsu.stack.Stack;
 
 /**
@@ -63,7 +62,7 @@ public class BinarySearchTree {
 		return b;
 	}
 
-	public boolean find(int data) {
+	public boolean search(int data) {
 		boolean find = false;
 		Node current = root;
 		while (current != null && !find)
@@ -76,18 +75,18 @@ public class BinarySearchTree {
 		return find;
 	}
 
-	public boolean findRecursion(int data) {
-		return findRecursion(root, data);
+	public boolean searchRecursion(int data) {
+		return searchRecursion(root, data);
 	}
 
-	private boolean findRecursion(Node node, int data) {
+	private boolean searchRecursion(Node node, int data) {
 		if (node == null)
 			return false;
 		if (node.data == data)
 			return true;
 		if (node.data > data)
-			return findRecursion(node.left, data);
-		return findRecursion(node.right, data);
+			return searchRecursion(node.left, data);
+		return searchRecursion(node.right, data);
 
 	}
 

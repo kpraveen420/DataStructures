@@ -38,8 +38,10 @@ public class Main {
 
 		System.out.println("Depth of binary search tree is:"
 				+ bTree.depth(bTree.root));
-		System.out.println(bTree.findRecursion(9));
-		System.out.println(bTree.findRecursion(100));
+		System.out.println(bTree.search(11));
+		System.out.println(bTree.search(18));
+		System.out.println(bTree.searchRecursion(9));
+		System.out.println(bTree.searchRecursion(100));
 		System.out.println();
 		System.out.println("PreOrder recursive");
 		bTree.preOrder(bTree.root);
@@ -73,6 +75,7 @@ public class Main {
 		// bTree.inOrderIterative();
 		System.out.println();
 		System.out.println(bTree.compareTree(bTree.root, bTree2.root));
+		
 	}
 
 }
