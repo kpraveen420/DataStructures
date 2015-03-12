@@ -56,12 +56,6 @@ public class BinarySearchTree {
 
 	}
 
-	private int max(int a, int b) {
-		if (a > b)
-			return a;
-		return b;
-	}
-
 	public boolean search(int data) {
 		boolean find = false;
 		Node current = root;
@@ -177,13 +171,19 @@ public class BinarySearchTree {
 				temp = temp.left;
 			} else {
 				temp = myStack.peek();
-				if (temp.right == null || temp.right == lastVisitedNode) {
-					lastVisitedNode = myStack.pop();
-					System.out.print(lastVisitedNode.data + " ");
-					temp = null;
-				} else
+				// if (temp.right == null || temp.right == lastVisitedNode) {
+				// lastVisitedNode = myStack.pop();
+				// System.out.print(lastVisitedNode.data + " ");
+				// temp = null;
+				// } else
+				// temp = temp.right;
+				if (temp.right != null && temp.right != lastVisitedNode)
 					temp = temp.right;
-
+				else {
+					System.out.print(myStack.pop().data+" ");
+					lastVisitedNode = temp;
+					temp = null;
+				}
 			}
 		}
 	}
@@ -270,6 +270,7 @@ public class BinarySearchTree {
 
 	/**
 	 * Compares whether both the trees are same or not.
+	 * 
 	 * @param node1
 	 * @param node2
 	 * @return
