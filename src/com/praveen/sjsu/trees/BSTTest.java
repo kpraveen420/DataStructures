@@ -80,6 +80,50 @@ public class BSTTest {
 		System.out.println();
 		System.out.println(bTree.compareTree(bTree.root, bTree2.root));
 
+		System.out.println("Level order traversal");
+		bTree.levelOrderTraversal();
+		System.out.println();
+		System.out.println("Level by level traversal");
+		bTree.levelByLevelTraversal();
+
+		System.out.println("Nearest node for 14 is: " + bTree.findNearest(14));
+		// = ;
+		// System.out.println(n1.data);
+		System.out.println(System.nanoTime());
+		Random r = new Random();
+		System.out.println(r.rand());
+		System.out.println(r.rand());
+
+		int abcd = 0;
+		System.out.println(~abcd);
+
+	}
+}
+
+/**
+ * Random number generator class.
+ * 
+ * @author PraveenK
+ *
+ */
+class Random {
+	long a = 25214903917L; // These Values for a and c are the actual values
+							// found
+	long c = 11; // in the implementation of java.util.Random(), see link
+	long previous = 0;
+
+	public Random() {
+		previous = System.nanoTime();
 	}
 
+	void rseed(long seed) {
+		previous = seed;
+	}
+
+	long rand() {
+		long r = a * previous + c;
+		// Note: typically, one chooses only a couple of bits of this value.
+		previous = r;
+		return r;
+	}
 }

@@ -281,16 +281,11 @@ public class BinarySearchTree {
 					&& compareTree(node1.right, node2.right);
 		else
 			return false;
-
-		// if (node1 == node2)
-		// return true;
-		// if (node1 != null && node2 != null && node1.data == node2.data)
-		// return compareTree(node1.left, node2.left)
-		// && compareTree(node1.right, node2.right);
-		// else
-		// return false;
 	}
 
+	/**
+	 * Prints elements in level order..
+	 */
 	public void levelOrderTraversal() {
 		Node temp = root;
 		Node t = null;
@@ -308,6 +303,9 @@ public class BinarySearchTree {
 
 	}
 
+	/**
+	 * Prints elements in level by level..
+	 */
 	public void levelByLevelTraversal() {
 		Node temp = root;
 		Node t = null;

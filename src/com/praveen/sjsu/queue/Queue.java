@@ -10,7 +10,7 @@ package com.praveen.sjsu.queue;
  *
  * @param <T>
  */
-class Queue<T> {
+public class Queue<T> {
 	T[] tList;
 	int size;
 	int front, back, count;
