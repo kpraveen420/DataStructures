@@ -1,7 +1,10 @@
 package com.praveen.sjsu.trees;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import com.praveen.sjsu.stack.Stack;
+import com.praveen.sjsu.queue.Queue;
 
 /**
  * @author praveenk
@@ -171,16 +174,10 @@ public class BinarySearchTree {
 				temp = temp.left;
 			} else {
 				temp = myStack.peek();
-				// if (temp.right == null || temp.right == lastVisitedNode) {
-				// lastVisitedNode = myStack.pop();
-				// System.out.print(lastVisitedNode.data + " ");
-				// temp = null;
-				// } else
-				// temp = temp.right;
 				if (temp.right != null && temp.right != lastVisitedNode)
 					temp = temp.right;
 				else {
-					System.out.print(myStack.pop().data+" ");
+					System.out.print(myStack.pop().data + " ");
 					lastVisitedNode = temp;
 					temp = null;
 				}
@@ -192,20 +189,20 @@ public class BinarySearchTree {
 	 * Prints all paths from root to leafs
 	 * 
 	 * @param node
-	 * @param path
+	 * @param n
 	 */
-	public void printAllRootToLeafPaths(Node node, ArrayList<Integer> path) {
+	public void printAllRootToLeafPaths(Node node, List<Integer> n) {
 		if (node == null) {
 			return;
 		}
-		path.add(node.data);
+		n.add(node.data);
 
 		if (node.left == null && node.right == null) {
-			System.out.println(path);
+			System.out.println(n);
 			return;
 		} else {
-			printAllRootToLeafPaths(node.left, new ArrayList<Integer>(path));
-			printAllRootToLeafPaths(node.right, new ArrayList<Integer>(path));
+			printAllRootToLeafPaths(node.left, new ArrayList<Integer>(n));
+			printAllRootToLeafPaths(node.right, new ArrayList<Integer>(n));
 		}
 	}
 
@@ -294,16 +291,90 @@ public class BinarySearchTree {
 		// return false;
 	}
 
-}
+	public void levelOrderTraversal() {
+		Node temp = root;
+		Node t = null;
+		Queue<Node> q = new Queue<Node>(20);
+		if (temp != null)
+			q.enqueue(temp);
+		while (!q.isEmpty()) {
+			t = q.dequeue();
+			System.out.print(t.data + " ");
+			if (t.left != null)
+				q.enqueue(t.left);
+			if (t.right != null)
+				q.enqueue(t.right);
+		}
 
-class Node {
-	public int data;
-	public Node left;
-	public Node right;
-
-	Node(int newData) {
-		left = null;
-		right = null;
-		data = newData;
 	}
+
+	public void levelByLevelTraversal() {
+		Node temp = root;
+		Node t = null;
+		Queue<Node> q = new Queue<Node>(20);
+		if (temp != null) {
+			q.enqueue(temp);
+			q.enqueue(null);
+		}
+		while (!q.isEmpty()) {
+			t = q.dequeue();
+
+			if (t == null) {
+				System.out.println("");
+				if (!q.isEmpty())
+					q.enqueue(null);
+			} else {
+				System.out.print(t.data + " ");
+				if (t.left != null)
+					q.enqueue(t.left);
+				if (t.right != null)
+					q.enqueue(t.right);
+			}
+		}
+
+	}
+
+	/***
+	 * Finds the nearest node for the given number
+	 * 
+	 * @param root
+	 * @param x
+	 * @return nearest element in BST
+	 */
+	public int findNearest(int x) {
+		Node temp = root, nearest = root;
+		int diff = Integer.MAX_VALUE;
+
+		while (temp != null) {
+			if (temp.data == x)
+				return x;
+			else if (temp.data > x) {
+				if ((temp.data - x) < diff) {
+					diff = temp.data - x;
+					nearest = temp;
+				}
+				temp = temp.left;
+			} else {
+				if ((temp.data - x) < diff) {
+					diff = Math.abs(temp.data - x);
+					nearest = temp;
+				}
+				temp = temp.right;
+			}
+		}
+		return nearest.data;
+	}
+
+	static class Node {
+		public int data;
+		public Node left;
+		public Node right;
+
+		Node(int newData) {
+			left = null;
+			right = null;
+			data = newData;
+		}
+	}
+
 }
