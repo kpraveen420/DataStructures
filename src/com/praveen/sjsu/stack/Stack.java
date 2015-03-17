@@ -12,6 +12,7 @@ public class Stack<T> {
 	private T[] tList;
 	int position;
 
+	@SuppressWarnings("unchecked")
 	public Stack(int size) {
 		if (size < 0)
 			throw new IllegalArgumentException("Stack size can't be negative..");

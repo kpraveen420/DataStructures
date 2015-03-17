@@ -40,8 +40,8 @@ public class RadixSort {
 	 */
 	public static void main(String[] args) {
 		int[] t = new int[] { 19, 8, 123, 56, 890, 10 };
-		t= radixSort(t,3);
-		for(int a: t)
+		t = radixSort(t, 3);
+		for (int a : t)
 			System.out.println(a);
 
 	}
