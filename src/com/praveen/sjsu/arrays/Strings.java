@@ -43,7 +43,7 @@ public class Strings {
 		// check rotation
 		System.out.println(checkRotation("abcd", "dabc"));
 		String name = "ABCD";
-		System.out.println(name.substring(name.length()-1));
+		System.out.println(name.substring(name.length() - 1));
 		System.out.println("HI");
 	}
 
@@ -92,6 +92,12 @@ public class Strings {
 		return reverseRecursive(temp2.substring(1)) + temp2.charAt(0);
 	}
 
+	/**
+	 * Removes duplicate characters in the input String.
+	 * 
+	 * @param temp
+	 * @return {@link String} without duplicate characters
+	 */
 	private static String removeDuplicates(String temp) {
 		for (int i = 0; i < temp.length(); i++) {
 			if (temp.lastIndexOf(temp.charAt(i)) != i)
@@ -100,6 +106,13 @@ public class Strings {
 		return temp;
 	}
 
+	/**
+	 * Checks whether both the strings are anagrams or not...
+	 * 
+	 * @param temp1
+	 * @param temp2
+	 * @return {@code true} if both are anagrams {@code false} otherwise
+	 */
 	private static boolean checkAnagram(String temp1, String temp2) {
 		if (temp1.length() != temp2.length())
 			return false;
@@ -162,6 +175,13 @@ public class Strings {
 
 	}
 
+	/**
+	 * Checks whether one string is rotation of another string.
+	 * 
+	 * @param s1
+	 * @param s2
+	 * @return
+	 */
 	private static boolean checkRotation(String s1, String s2) {
 		if (s1 == null || s2 == null || s1.length() != s2.length())
 			return false;

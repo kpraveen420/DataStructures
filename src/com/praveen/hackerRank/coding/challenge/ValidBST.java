@@ -7,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
+ * Please read ValidateBST.png and ValidateBST2.png for problem description..
  * 
  * @author PraveenK
  *
@@ -17,6 +18,13 @@ public class ValidBST {
 	static int[] d;
 	static int i = 0;
 
+	/**
+	 * Constructs Binary tree from preorder array.
+	 * 
+	 * @param array of elements
+	 * @param length 
+	 * @return root of the binary search tree.
+	 */
 	public static Node binaryPreorderToTree(int[] arr, int length) {
 		if (length <= 0) {
 			return null;
@@ -58,7 +66,6 @@ public class ValidBST {
 				root.right = binaryPreorderToTree(arr, length, currentNode, max);
 			}
 		}
-
 		return root;
 	}
 
@@ -77,18 +84,6 @@ public class ValidBST {
 		inOrder(node.left);
 		d[i++] = node.data;
 		inOrder(node.right);
-
-	}
-
-	public static boolean IsValidBST(Node node, int MIN, int MAX) {
-		if (node == null)
-			return true;
-		if (node.data > MIN && node.data < MAX
-				&& IsValidBST(node.left, MIN, node.data)
-				&& IsValidBST(node.right, node.data, MAX))
-			return true;
-		else
-			return false;
 	}
 
 	/**
@@ -104,7 +99,6 @@ public class ValidBST {
 	}
 
 	public static void main(String args[]) throws Exception {
-
 		BufferedReader s = new BufferedReader(new InputStreamReader(System.in));
 		int testCases = Integer.parseInt(s.readLine());
 		int j = 0;
@@ -124,14 +118,12 @@ public class ValidBST {
 			for (String word : line.split("\\s+")) {
 				data[a++] = Integer.parseInt(word);
 			}
-
 			root = binaryPreorderToTree(data, in);
 			boolean ok = true;
 			preOrder(root);
 			for (int i = 0; i < in; i++) {
 				if (d[i] != data[i]) {
 					ok = false;
-
 				}
 			}
 			if (ok)

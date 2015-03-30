@@ -3,8 +3,8 @@ package com.praveen.sjsu.trees;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.praveen.sjsu.stack.Stack;
 import com.praveen.sjsu.queue.Queue;
+import com.praveen.sjsu.stack.Stack;
 
 /**
  * @author praveenk
@@ -196,7 +196,6 @@ public class BinarySearchTree {
 			return;
 		}
 		n.add(node.data);
-
 		if (node.left == null && node.right == null) {
 			System.out.println(n);
 			return;
