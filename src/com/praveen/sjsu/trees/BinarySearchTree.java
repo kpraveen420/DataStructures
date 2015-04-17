@@ -63,9 +63,10 @@ public class BinarySearchTree {
 		boolean find = false;
 		Node current = root;
 		while (current != null && !find)
-			if (current.data == data)
+			if (current.data == data) {
 				find = true;
-			else if (current.data > data)
+				break;
+			} else if (current.data > data)
 				current = current.left;
 			else
 				current = current.right;
@@ -360,6 +361,36 @@ public class BinarySearchTree {
 			}
 		}
 		return nearest.data;
+	}
+
+	/**
+	 * A binary tree T is given. A node of that tree containing value V is
+	 * described as visible if the path from the root of the tree to that node
+	 * does not contain a node with any value exceeding V. In particular, the
+	 * root is always visible and nodes with values lower than that of the root
+	 * are never visible.
+	 * 
+	 * 
+	 * Find total number of visible nodes in the tree.
+	 * 
+	 * @param n
+	 * @return total no of Visible Nodes
+	 */
+	public int visibleNodesCount(Node n) {
+		if (n == null)
+			return 0;
+		return findVisible(n, n.data);
+	}
+
+	private int findVisible(Node n, int max) {
+		if (n == null)
+			return 0;
+		if (n.data >= max) {
+			return 1 + findVisible(n.left, n.data)
+					+ findVisible(n.right, n.data);
+		} else {
+			return findVisible(n.left, max) + findVisible(n.right, max);
+		}
 	}
 
 	static class Node {
