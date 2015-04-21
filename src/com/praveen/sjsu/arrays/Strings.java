@@ -45,6 +45,7 @@ public class Strings {
 		String name = "ABCD";
 		System.out.println(name.substring(name.length() - 1));
 		System.out.println("HI");
+		System.out.println((int)'a');
 	}
 
 	/**
