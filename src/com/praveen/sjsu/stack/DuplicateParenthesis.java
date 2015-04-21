@@ -4,7 +4,7 @@
 package com.praveen.sjsu.stack;
 
 /**
- * @author nagarjunak
+ * @author PraveenK
  *
  */
 public class DuplicateParenthesis {
@@ -152,4 +152,66 @@ class Parser {
 			return op;
 		}
 	}
+
+//	public static String removeDupliate(String value) {
+//		Stack<Character> charStack = new Stack<Character>(20);
+//
+//		int len = value.length();
+//
+//		char exprChar = ' ';
+//
+//		for (int indexOfExpr = 0; indexOfExpr < len; indexOfExpr++) {
+//
+//			exprChar = value.charAt(indexOfExpr);
+//
+//			if (exprChar == '(' || exprChar == '{' || exprChar == '[') {
+//
+//				charStack.push(exprChar);
+//
+//			}
+//
+//			else if (exprChar == ')' && !charStack.empty()) {
+//
+//				if (charStack.peek() == '(') {
+//
+//					charStack.pop();
+//
+//				}
+//
+//			}
+//
+//			else if (exprChar == '}' && !charStack.empty()) {
+//
+//				if (charStack.peek() == '{') {
+//
+//					charStack.pop();
+//
+//				}
+//
+//			}
+//
+//			else if (exprChar == ']' && !charStack.empty()) {
+//
+//				if (charStack.peek() == '[') {
+//
+//					charStack.pop();
+//
+//				}
+//
+//			}
+//
+//			else if (exprChar == ')' || exprChar == '}' || exprChar == ']') {
+//
+//				return "No";
+//
+//			}
+//
+//		}
+//
+//		if (!charStack.empty())
+//
+//			return "No";
+//
+//		return "Yes";
+//	}
 }

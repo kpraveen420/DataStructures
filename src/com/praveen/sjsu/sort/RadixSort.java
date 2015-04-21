@@ -22,16 +22,14 @@ public class RadixSort {
 		};
 		int div = 1, mod = 10;
 		for (int i = 0; i < maxDigits; i++, div *= 10, mod *= 10) {
-			for (int a : input) {
+			for (int a : input)
 				temp[(a % mod) / div].add(a);
-			}
 			int ind = 0;
 			for (LinkedList<Integer> t : temp) {
 				while (!t.isEmpty())
 					input[ind++] = t.pop();
 			}
 		}
-
 		return input;
 	}
 
@@ -43,7 +41,6 @@ public class RadixSort {
 		t = radixSort(t, 3);
 		for (int a : t)
 			System.out.println(a);
-
 	}
 
 }
