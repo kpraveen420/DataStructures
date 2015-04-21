@@ -11,6 +11,10 @@ public class RemoveDuplicates {
 
 	/**
 	 * Removes duplicates elements in the array and returns a new array.
+	 * <li>Possible Approaches::</li>
+	 * <li>Use hashSet </li>
+	 * <li>brute force </li>
+	 * <li>sort them and remove the duplicates</li>
 	 * 
 	 * @param input
 	 * @return array without duplicates in it.
@@ -44,5 +48,4 @@ public class RemoveDuplicates {
 			System.out.println(i);
 
 	}
-
 }
